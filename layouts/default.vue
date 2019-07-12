@@ -1,55 +1,93 @@
 <template>
   <div>
+    <header class="header">
+      <nuxt-link
+        to="/"
+        class="text-white px-4 py-2 text-xl md:px-6 md:py-4 hover:bg-pink-600"
+      >
+        Alison's Makeup
+      </nuxt-link>
+
+      <div class="flex">
+        <a
+          v-for="link in socialLinks"
+          :key="link.name"
+          :href="link.link"
+          class="socialLink"
+        >
+          <fa-icon
+            class="text-2xl"
+            :icon="link.icon"
+          />
+        </a>
+      </div>
+    </header>
+
     <nuxt />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+export default {
+  data() {
+    return {
+      socialLinks: [
+        {
+          name: 'Facebook',
+          icon: ['fab', 'facebook'],
+          link: 'https://facebook.com',
+        },
+        {
+          name: 'Instagram',
+          icon: ['fab', 'instagram'],
+          link: 'https://instagram.com',
+        },
+        {
+          name: 'Twitter',
+          icon: ['fab', 'twitter'],
+          link: 'https://twitter.com',
+        },
+        {
+          name: 'YouTube',
+          icon: ['fab', 'youtube'],
+          link: 'https://youtube.com',
+        },
+        {
+          name: 'Email',
+          icon: ['fal', 'envelope'],
+          link: 'mailto:alison@alisons-makeup.com',
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped>
+.header {
+  @apply flex justify-between bg-pink-700;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
+.socialLink {
+  @apply text-pink-100 px-4 py-3 flex items-center;
+  height: 100%;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.socialLink:hover {
+  @apply bg-pink-600;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.socialLink:last-child {
+  @apply pr-6;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+@media (max-width: 768px) {
+  .header {
+    @apply flex-col items-center;
+  }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+  .socialLink:last-child {
+    @apply pr-4;
+  }
 }
 </style>

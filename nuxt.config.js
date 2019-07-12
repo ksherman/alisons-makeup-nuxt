@@ -1,6 +1,15 @@
+import sanityClient from './sanityClient';
+const fontawesome = require('./nuxt.fontawesome.config');
+
+const routesQuery = `
+  {
+    "posts": *[_type == "post"],
+  }
+`;
 
 export default {
   mode: 'spa',
+
   /*
   ** Headers of the page
   */
@@ -13,36 +22,64 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    bodyAttrs: {
+      class: 'bg-gray-200'
+    }
   },
+
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
+
   /*
   ** Global CSS
   */
   css: [
     '~/assets/css/tailwind.css'
   ],
+
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
   ],
+
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'nuxt-fontawesome',
   ],
+
+  /**
+   * Font Awesome config
+   */
+  fontawesome,
+
+  /**
+   * Dynamic routes for sanity data
+   */
+  generate: {
+    routes: () => (
+      sanityClient
+        .fetch(routesQuery)
+        .then(res => ([
+          ...res.authors.map(item => `/post/${item.slug.current}`)
+        ]))
+    ),
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
   },
+
   /*
   ** Build configuration
   */

@@ -11,8 +11,22 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.9.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-regular-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/pro-light-svg-icons": "^5.9.0",
+    "@fortawesome/pro-regular-svg-icons": "^5.9.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.9.0",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
     "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.0.0"
+    "@sanity/client": "^0.141.6",
+    "@sanity/image-url": "^0.140.12",
+    "groq": "^0.141.5",
+    "nuxt": "^2.0.0",
+    "nuxt-fontawesome": "^0.4.0",
+    "sanity-blocks-vue-component": "^0.1.0"
   },
   "devDependencies": {
     "tailwindcss": "^1.0.0",
