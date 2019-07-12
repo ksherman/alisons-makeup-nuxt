@@ -68,7 +68,7 @@ export default {
       sanityClient
         .fetch(routesQuery)
         .then(res => ([
-          ...res.authors.map(item => `/post/${item.slug.current}`)
+          ...res.posts.map(item => `/post/${item.slug.current}`)
         ]))
     ),
   },

@@ -83,7 +83,7 @@ export default {
 
 @media (max-width: 768px) {
   .header {
-    @apply flex-col items-center;
+    @apply flex-col items-center ;
   }
 
   .socialLink:last-child {

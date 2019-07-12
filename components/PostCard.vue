@@ -49,8 +49,6 @@ export default {
     imageUrl() {
       const image = this.post.pictures[0].image;
 
-      console.log(image);
-
       return builder
         .image(image)
         .size(400, 300)
